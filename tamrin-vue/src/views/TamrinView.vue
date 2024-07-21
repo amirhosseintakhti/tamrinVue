@@ -2,17 +2,17 @@
 <div>
    <form @submit.prevent="formHandler">
     <div>
-         <input class="myInput" type="email" name="email" id="email" :value="email" @keydown="changeInput" >
+         <input class="myInput" type="email" name="email" id="email" v-model="email">
     <!-- <span v-text="email"></span> -->
     </div>
     <div>
-        <input class="myInput" type="password" name="password" id="password" :value="password" @keydown="changeInput">
+        <input class="myInput" type="password" name="password" id="password" v-model="password">
     </div> 
     <button class="button button1" type="submit" >Green</button>
    </form>
    <h2> form data:</h2>
    <p>email:{{ email }}</p>
-   <span v-text="password"></span>
+   <p>password:<span v-text="password"></span></p>
 
 </div>
 </template>
@@ -21,17 +21,17 @@
 export default{
     data(){
        return{
-        email:'',
-        password:'',
+        email:'example@gmail.com',
+        password:'1234',
 
        }
     },
     methods:{
-        changeInput(event){
-         this[event.target.name]= event.target.value;
+        // changeInput(event){
+        //  this[event.target.name]= event.target.value;
 
             
-        },
+        // },
         formHandler(){
             console.log(this.email , this.password);
         }
